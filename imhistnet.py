@@ -1,7 +1,15 @@
 import torch
 import torch.nn as nn
 
+# Remember that you have add the following lines in your main training code after calling the model:
+'''
+model = imhistnet_3d().to(device)
+for name, param in model.named_parameters():
+    if name in ['conv1.weight', 'conv2.bias']:
+        param.required_grad = False
+'''
 
+# PLease ignore the following commented portion
 '''
 class imhistnet_3d(nn.Module):
     def __init__(self,
