@@ -1,7 +1,6 @@
 # 3DImHistNet: Learnable 3D Image Histogram-based DNN
 
-This code is the 3D extention of 2D ImHistNet proposed in this [paper](http://ece.ubc.ca/~bisicl/papers/mahmiccai19.pdf) in MICCAI 2019. Running the "train_3d_imhistnet" needs [MONAI](https://github.com/Project-MONAI/MONAI) framework installed.
-
+This code is the 3D extention of 2D ImHistNet proposed in this [paper](http://ece.ubc.ca/~bisicl/papers/mahmiccai19.pdf) in MICCAI 2019. This module can be incorporated into a conventional CNN.
 
 ## Citations
 If you find this work useful, please cite one or both of the following original papers:
