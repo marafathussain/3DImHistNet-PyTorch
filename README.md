@@ -1,9 +1,19 @@
 # 3DImHistNet: Learnable 3D Image Histogram-based DNN
 
-This code is the 3D extention of 2D ImHistNet proposed in this [paper](http://www.cs.sfu.ca/~hamarneh/ecopy/miccai2019e.pdf) in MICCAI 2019. This 3D module can be incorporated into a conventional CNN. For details about the algorithm, you can check this [repository](https://github.com/marafathussain/ImHistNet). 
+This code is the 3D extention of 2D ImHistNet proposed in this [paper](http://www.cs.sfu.ca/~hamarneh/ecopy/miccai2019e.pdf) in MICCAI 2019. This 3D module can be incorporated into a conventional CNN. For details about the algorithm, you can check this [repository](https://github.com/marafathussain/ImHistNet).
+
+## Usage
+The 3D ImHistNet module is written in ```imhistnet.py``` file. It can be plugged in to any conventional 3D CNN. An example code ```train_3d_imhistnet.ipynb``` is given in a [MONAI](https://monai.io/) framework. Please note that this notebook code is only clarify the usage. Also please make sure that you have add the following lines in your main training code after calling the model, as this network fixes the kernel parameter for the first Convolution layer and bias of the second Convolution layer to value 1 and does not update during backpropagation:
+
+```
+model = imhistnet_3d().to(device)
+for name, param in model.named_parameters():
+    if name in ['conv1.weight', 'conv2.bias']:
+        param.required_grad = False
+```
 
 ## Citations
-If you find this work useful, please cite one or both of the following original papers:
+If you find this work useful, please cite the first or all of the following original papers:
 
 ```
 @article{hussain2021learnable,
